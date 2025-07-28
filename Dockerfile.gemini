@@ -1,0 +1,11 @@
+FROM node:24-alpine
+
+# Essential tools for development workflow
+RUN apk add --no-cache \
+  bash \
+  curl
+
+# Install Gemini CLI
+RUN npm install -g @google/gemini-cli
+
+WORKDIR /app

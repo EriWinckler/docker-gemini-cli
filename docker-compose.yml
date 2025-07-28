@@ -1,0 +1,15 @@
+services:
+  gemini:
+    build:
+      context: .
+      dockerfile: Dockerfile.gemini
+    container_name: gemini
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - TERM=xterm-256color
+    volumes:
+      - ${PROJECT_PATH}:/app:cached
+    stdin_open: true
+    tty: true
+    working_dir: /app
+    restart: unless-stopped
